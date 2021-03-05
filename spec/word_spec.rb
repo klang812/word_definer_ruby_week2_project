@@ -19,5 +19,11 @@ describe '#Word' do
     end
   end
 
-
+  describe('#==') do
+    it("it is the same word if it has the same attributes as another word") do
+      word = Word.new("star", nil, nil)
+      word2 = Word.new("star", nil, nil)
+      expect(word).to(eq(word2))
+    end
+  end
 end
