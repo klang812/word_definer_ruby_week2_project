@@ -65,4 +65,15 @@ describe '#Word' do
     end
   end
 
+  # Delete
+  describe('#delete') do
+    it("deletes a word by id") do
+      word = Word.new("star", nil, nil)
+      word.save()
+      word2 = Word.new("wars", nil, nil)
+      word2.save()
+      word2.delete()
+      expect(Word.all).to(eq([word]))
+    end
+  end
 end
