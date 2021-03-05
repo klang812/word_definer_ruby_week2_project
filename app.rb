@@ -9,7 +9,14 @@ get('/') do
   erb(:words)
 end
 
-get('/definitions') do
-  @word = Word.all
-  erb(:definitions)
+get('/new_words') do
+  erb(:new_word)
+end
+
+post('/new_words') do
+  words = params[:new_word]
+  word = Word.new(words, nil)
+  word.save()
+  @word = Word.all()
+  erb(:new_words)
 end

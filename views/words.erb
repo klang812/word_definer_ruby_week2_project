@@ -10,6 +10,14 @@
   </ul>
 <% else %>
   <p>UH OH! There arent any words! What are we going to do?!</p>
+  <p>Come on!  Let's add some words!</p>
+  <form action="/new_words" method="post">
+    <div class="form-group">
+      <label for="new_word">Add a word</label>
+      <input id="add_word" name="new_word" class="form-control" type="text">
+    </div>
+    <button type="submit" class="btn btn-success">Let's do this!</button>
+  </form>  
 <% end %>
 
-<a href="/words/new">Come on!  Let's add some words!</a>
+
