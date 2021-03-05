@@ -17,9 +17,9 @@ describe '#Word' do
   # Create
   describe('#save') do
     it("save a word") do
-      word = Word.new("star", nil, nil)
+      word = Word.new("star", nil)
       word.save()
-      word2 = Word.new("wars", nil, nil)
+      word2 = Word.new("wars", nil)
       word2.save()
       expect(Word.all).to(eq([word, word2]))
     end
@@ -27,8 +27,8 @@ describe '#Word' do
 
   describe('#==') do
     it("it is the same word if it has the same attributes as another word") do
-      word = Word.new("star", nil, nil)
-      word2 = Word.new("star", nil, nil)
+      word = Word.new("star", nil)
+      word2 = Word.new("star", nil)
       expect(word).to(eq(word2))
     end
   end
@@ -36,9 +36,9 @@ describe '#Word' do
   # Delete
   describe('.clear') do
     it("clears all words") do
-      word = Word.new("star", nil, nil)
+      word = Word.new("star", nil)
       word.save()
-      word2 = Word.new("wars", nil, nil)
+      word2 = Word.new("wars", nil)
       word2.save()
       Word.clear()
       expect(Word.all).to(eq([]))
@@ -47,9 +47,9 @@ describe '#Word' do
 
   describe('.find') do
     it("finds a word by id") do
-      word = Word.new("star", nil, nil)
+      word = Word.new("star", nil)
       word.save()
-      word2 = Word.new("wars", nil, nil)
+      word2 = Word.new("wars", nil)
       word2.save()
       expect(Word.find(word2.id)).to(eq(word2))
     end
@@ -58,7 +58,7 @@ describe '#Word' do
   # Update
   describe('#update') do
     it("updates a word by id") do
-      word = Word.new("star", nil, nil)
+      word = Word.new("star", nil)
       word.save()
       word.update("jedi")
       expect(word.word).to(eq("jedi"))
@@ -68,9 +68,9 @@ describe '#Word' do
   # Delete
   describe('#delete') do
     it("deletes a word by id") do
-      word = Word.new("star", nil, nil)
+      word = Word.new("star", nil)
       word.save()
-      word2 = Word.new("wars", nil, nil)
+      word2 = Word.new("wars", nil)
       word2.save()
       word2.delete()
       expect(Word.all).to(eq([word]))

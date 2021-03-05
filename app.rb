@@ -5,5 +5,11 @@ require('pry')
 also_reload('lib/**/*.rb')
 
 get('/') do
-  "Homepage"
+  @word = Word.all
+  erb(:words)
+end
+
+get('/definitions') do
+  @word = Word.all
+  erb(:definitions)
 end

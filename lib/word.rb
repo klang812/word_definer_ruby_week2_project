@@ -1,14 +1,13 @@
 class Word
   attr_reader :id
-  attr_accessor :word, :definition
+  attr_accessor :word
 
   @@words = {}
   @@total_words = 0
 
-  def initialize(word, id, definition)
+  def initialize(word, id)
     @word = word
     @id = id || @@total_words +=1
-    @definition = definition
   end
 
   def self.all
@@ -16,7 +15,7 @@ class Word
   end
 
   def save
-    @@words[self.id] = Word.new(self.word, self.id, self.definition)
+    @@words[self.id] = Word.new(self.word, self.id)
   end
 
   def ==(compare_word)

@@ -1,0 +1,15 @@
+<h1>WORD WORD WORD! WORD IS THE WORD!</h1>
+
+<h3>What words can we learn today?</h3>
+
+<% if @word.any? %>
+  <ul>
+    <% @word.each do |library| %>
+      <li><%= library.word %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>UH OH! There arent any words! What are we going to do?!</p>
+<% end %>
+
+<a href="/words/new">Come on!  Let's add some words!</a>
