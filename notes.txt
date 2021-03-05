@@ -1,0 +1,23 @@
+class Word
+
+Project should do.....
+
+1. Homepage should list all words
+2. When a word is clicked it should lead to a page with words definitions
+3. Children should be able to add a word, and when viewing word, be able to add, 
+    update or delete one or more definitions
+4. Deploy to Heroku
+
+Objectives
+
+1. Full CRUD for Word and Definition. Routes use RESTful conventions.
+2. Sinatra application uses views, instance variables and forms
+3. Sinatra processes GET and POST requests/responses
+4. Includes thorough and passing intergration specs
+5. App is deployed to Heroku(include link in README)
+
+    From last week....
+      1. Objects created from custom class w/ custom methods
+      2. Specs have complete coverage for behaviors that need to be tested
+      3. All specs are passing
+      
