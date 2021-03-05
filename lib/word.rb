@@ -19,7 +19,7 @@ class Word
   end
 
   def ==(compare_word)
-    self.word() == compare_word.word()
+    self.word == compare_word.word()
   end
 
   def self.clear
