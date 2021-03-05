@@ -29,15 +29,14 @@ end
 
 patch('/:id') do
   @word = Word.find(params[:id].to_i())
-  @word.update(params[:word])   # change word from form
+  @word.update(params[:edit_word])   # change word from form
   @words = Word.all
   erb(:words)
 end
 
-
-
-
-
 delete("/:id") do
-  
+  @word = Word.find(params[:id].to_i())
+  @word.delete()
+  @words = Word.all
+  erb(:words)  
 end
