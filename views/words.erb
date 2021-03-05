@@ -2,9 +2,9 @@
 
 <h3>What words can we learn today?</h3>
 
-<% if @word.any? %>
+<% if @words.any? %>
   <ul>
-    <% @word.each do |library| %>
+    <% @words.each do |library| %>
       <li><a href="/<%= library.id %>"><%= library.word %></a></li>
     <% end %>
   </ul>

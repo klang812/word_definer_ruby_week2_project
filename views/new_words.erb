@@ -10,7 +10,15 @@
 
 <h3>Edit an existing word</h3>
 
-<h4>Words: <%= @word %></h4>
+<% if @word.any? %>
+  <ul>
+    <% @word.each do |library| %>
+      <li><a href="/<%= library.id %>"><%= library.word %></a></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
 
 
 <a href="/">Return to word list</a>

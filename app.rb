@@ -5,7 +5,7 @@ require('pry')
 also_reload('lib/**/*.rb')
 
 get('/') do
-  @word = Word.all
+  @words = Word.all
   erb(:words)
 end
 
@@ -15,7 +15,7 @@ get('/new_words') do
 end
 
 post('/new_words') do
-  words = params[:word]
+  words = params[:new_word]
   word = Word.new(words, nil)
   word.save()
   @word = Word.all()
@@ -24,6 +24,20 @@ end
 
 get('/:id') do
   @word = Word.find(params[:id].to_i())
-  puts @word
-  erb(:new_words)
+  erb(:word)
+end
+
+patch('/:id') do
+  @word = Word.find(params[:id].to_i())
+  @word.update(params[:word])   # change word from form
+  @words = Word.all
+  erb(:words)
+end
+
+
+
+
+
+delete("/:id") do
+  
 end
