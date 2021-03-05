@@ -23,4 +23,9 @@ class Word
     self.word() == compare_word.word()
   end
 
+  def self.clear
+    @@words = {}
+    @@total_words = 0
+  end
+  
 end
