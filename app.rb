@@ -10,7 +10,7 @@ get('/') do
 end
 
 get('/new_words') do
-  erb(:new_word)
+  erb(:new_words)
 end
 
 post('/new_words') do
@@ -19,4 +19,9 @@ post('/new_words') do
   word.save()
   @word = Word.all()
   erb(:new_words)
+end
+
+get('/:id') do
+  @word = Word.find(params[:id].ti_i())
+  erb(:words)
 end

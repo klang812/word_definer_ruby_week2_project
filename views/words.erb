@@ -5,17 +5,17 @@
 <% if @word.any? %>
   <ul>
     <% @word.each do |library| %>
-      <li><%= library.word %></li>
+      <li><a href="/<%= library.id %>"><%= library.word %></a></li>
     <% end %>
   </ul>
 <% else %>
   <p>UH OH! There arent any words! What are we going to do?!</p>
   <p>Come on!  Let's add some words!</p>
   <form action="/new_words" method="post">
-    <div class="form-group">
+    <%# <div class="form-group">
       <label for="new_word">Add a word</label>
-      <input id="add_word" name="new_word" class="form-control" type="text">
-    </div>
+      <input id="add_word" name="new_word" class="form-control" type="text"> %>
+    <%# </div> %>
     <button type="submit" class="btn btn-success">Let's do this!</button>
   </form>  
 <% end %>
