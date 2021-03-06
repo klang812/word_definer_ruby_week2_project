@@ -15,5 +15,16 @@ class Definitions
     (self.definition() == compare_definition.definition()) && (self.word() == compare_definition.word())
   end
 
-  
-end 
+  def self.all
+    @@definitions.values
+  end
+
+  def save
+    @@definitions[self.id] = Definitions.new(self.definition, self.word, self.id)
+  end
+
+  def self.clear
+    @@definitions = {}
+  end
+end
+
