@@ -6,6 +6,8 @@ require 'pry'
 describe '#Definitions' do
   
   before(:each) do
+    Word.clear()
+    Definitions.clear()
     @word = Word.new("star", nil)
     @word.save()
   end
@@ -47,6 +49,14 @@ describe '#Definitions' do
     end
   end
 
-
+  describe('.find') do
+    it("finds a definition by id") do
+      definition = Definitions.new("bright", @word.id, nil)
+      definition.save()
+      definition2 = Definitions.new("not good", @word.id, nil)
+      definition2.save()
+      expect(Definitions.find(definition2.id)).to(eq(definition2))
+    end
+  end
 end
  
