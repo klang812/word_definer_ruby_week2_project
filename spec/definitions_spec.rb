@@ -58,5 +58,14 @@ describe '#Definitions' do
       expect(Definitions.find(definition2.id)).to(eq(definition2))
     end
   end
+
+  describe('#update') do
+    it("updates a definition by id") do
+      new_definition = Definitions.new("bright", @word.id, nil)
+      new_definition.save()
+      new_definition.update("supernova", @word.id)
+      expect(new_definition.definition).to(eq("supernova"))
+    end
+  end
+
 end
- 
