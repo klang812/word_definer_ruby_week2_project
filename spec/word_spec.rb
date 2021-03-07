@@ -1,5 +1,6 @@
 require 'rspec'
 require 'word'
+require 'definitions'
 
 describe '#Word' do
   
@@ -76,4 +77,6 @@ describe '#Word' do
       expect(Word.all).to(eq([word]))
     end
   end
+
+  
 end

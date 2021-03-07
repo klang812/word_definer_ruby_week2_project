@@ -40,5 +40,18 @@ class Definitions
   def delete
     @@definitions.delete(self.id)
   end
+
+  def self.find_by_word(new_word_id)
+    definitions = []
+    @@definitions.values.each do |new_definition|
+      if new_definition.word == new_word_id
+        definitions.push(new_definition)
+      end
+    end
+    definitions
+  end
+
 end
+
+
 
