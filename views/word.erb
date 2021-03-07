@@ -12,6 +12,24 @@
   <button type="submit">Update your word</button>
 </form>
 
+<% if @definitions.any? %>
+  <ul>
+    <% @definitions.each do |definition| %>
+      <li><%= definition.definition %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<h1>Add Definition: </h1>
+
+<form action="/<%= @word.id() %>/definitions" method="post">
+  
+  <label for="add_definition">Add a definition!</label>
+  <input id="add_definition" name="add_definition" type="text">
+
+  <button type="submit">Lets change it!</button>
+</form>
+
 <p><a href="/">Return to word list</a></p>
 
 <form action="/<%= @word.id() %>" method="post">

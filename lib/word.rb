@@ -2,6 +2,7 @@ class Word
   attr_reader :id
   attr_accessor :word
 
+  # @@words = {1 => word, 2 => word, 3=> word, etc} word.word = "star"
   @@words = {}
   @@total_words = 0
 
@@ -18,6 +19,7 @@ class Word
     @@words[self.id] = Word.new(self.word, self.id)
   end
 
+  # word.word = "star" == compare_word.word = "star"
   def ==(compare_word)
     self.word == compare_word.word()
   end
