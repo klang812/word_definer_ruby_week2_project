@@ -6,6 +6,7 @@ describe '#Word' do
   
   before(:each) do
     Word.clear()
+    Definitions.clear()
   end
 
   # Read
@@ -78,5 +79,16 @@ describe '#Word' do
     end
   end
 
-  
+  describe('#definitions') do
+    it("returns definitions for a word") do
+      word = Word.new("star", nil)
+      word.save()
+      definition = Definitions.new("bright", word.id, nil)
+      puts definition.id
+      definition.save()
+      definition2 = Definitions.new("supernova", word.id, nil)
+      definition2.save()
+      expect(word.definitions).to(eq([definition, definition2]))
+    end
+  end  
 end
