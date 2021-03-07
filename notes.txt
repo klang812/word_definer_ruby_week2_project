@@ -21,3 +21,6 @@ Objectives
       2. Specs have complete coverage for behaviors that need to be tested
       3. All specs are passing
       
+many songs to an album
+many definitions to a word
+

@@ -1,18 +1,18 @@
 class Definitions
   attr_reader :id
-  attr_accessor :definition, :word
+  attr_accessor :definition, :word_id
 
   @@definitions = {}
   @@id = 0
 
-  def initialize(definition, word, id)
+  def initialize(definition, word_id, id)
     @definition = definition
-    @word = word
+    @word_id = word_id
     @id = id || @@id += 1
   end
 
   def ==(compare_definition)
-    (self.definition() == compare_definition.definition()) && (self.word() == compare_definition.word())
+    (self.definition() == compare_definition.definition()) && (self.word_id() == compare_definition.word_id())
   end
 
   def self.all
@@ -20,7 +20,7 @@ class Definitions
   end
 
   def save
-    @@definitions[self.id] = Definitions.new(self.definition, self.word, self.id)
+    @@definitions[self.id] = Definitions.new(self.definition, self.word_id, self.id)
   end
 
   def self.clear
@@ -31,10 +31,10 @@ class Definitions
     @@definitions[id]
   end
 
-  def update(definition, word)
+  def update(definition, word_id)
     self.definition = definition
-    self.word = word
-    @@definitions[self.id] = Definitions.new(self.definition, self.word, self.id)
+    self.word_id = word_id
+    @@definitions[self.id] = Definitions.new(self.definition, self.word_id, self.id)
   end
 
   def delete
@@ -44,13 +44,16 @@ class Definitions
   def self.find_by_word(new_word_id)
     definitions = []
     @@definitions.values.each do |new_definition|
-      if new_definition.word == new_word_id
+      if new_definition.word_id == new_word_id
         definitions.push(new_definition)
       end
     end
     definitions
   end
 
+  def word
+    Word.find(self.word_id)
+  end
 end
 
 
