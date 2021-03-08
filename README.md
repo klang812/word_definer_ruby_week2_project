@@ -18,7 +18,7 @@ _This application is a dictionary for kids.  You can add/edit/delete words and t
 ## Setup/Installation Requirements
 
 Live on the web:
-* You can view live via Heroko at the following link: <a href="https://github.com/klang812/word_definer_ruby_week2_project"></a>
+* You can view live via Heroko at the following link: <a href="https://fast-tor-34122.herokuapp.com/"></a>
 
 View directly:
 * You can view this directly on my <a href="https://github.com/klang812/word_definer_ruby_week2_project" target="_blank">GitHub pages</a>.
