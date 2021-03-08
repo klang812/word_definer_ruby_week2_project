@@ -20,6 +20,28 @@ describe('test integration specs') do
     end
   end
 
+  describe('create a definition path', {:type => :feature}) do
+    it('creates a definition and goes to the word it belongs to') do
+      word = Word.new("star", nil)
+      word.save
+      visit("/#{word.id}")
+      fill_in('add_definition', :with => 'bright')
+      click_on('Lets add it!')
+      expect(page).to have_content('bright')
+    end
+  end
+
+  describe('change a word', {:type => :feature}) do
+    it('changes an existing word') do
+      word = Word.new("star", nil)
+      word.save
+      visit("/#{word.id}")
+      fill_in('edit_word', :with => 'supernova')
+      click_on('Update your word')
+      expect(page).to have_content('supernova')
+    end
+  end
+
   
 
 end
