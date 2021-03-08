@@ -43,6 +43,13 @@ delete("/:id") do
   erb(:words)  
 end
 
+
+get('/:id/definitions/:definition_id') do
+  @definition = Definitions.find(params[:definition_id].to_i())
+  erb(:definition)
+end
+
+
 # add a definition to a word
 post('/:id/definitions') do
   @word = Word.find(params[:id].to_i())
@@ -51,5 +58,23 @@ post('/:id/definitions') do
   @definitions = Definitions.find_by_word(@word.id)
   erb(:word)
 end
+
+# change a single instance of a definition
+patch('/:id/definitions/:definition_id') do
+  @word = Word.find(params[:id].to_i())
+  @definition = Definitions.find(params[:definition_id].to_i())
+  @definition.update(params[:edit_definition], @word.id)   # change word from form
+  @definitions = Definitions.find_by_word(@word.id)
+  erb(:word)
+end
+
+delete("/:id/definitions/:definition_id") do
+  @word = Word.find(params[:id].to_i())
+  @definition = Definitions.find(params[:definition_id].to_i())
+  @definition.delete()
+  @definitions = Definitions.find_by_word(@word.id)
+  erb(:word)  
+end
+
 
 
