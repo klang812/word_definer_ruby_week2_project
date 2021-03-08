@@ -5,7 +5,6 @@ class Definitions
   @@definitions = {}
   @@id = 0
 
-  # definition = Definitions.new("bright", 1, nil)
   def initialize(definition, word_id, id)
     @definition = definition
     @word_id = word_id

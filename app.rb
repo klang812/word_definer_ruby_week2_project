@@ -31,7 +31,7 @@ end
 
 patch('/:id') do
   @word = Word.find(params[:id].to_i())
-  @word.update(params[:edit_word])   # change word from form
+  @word.update(params[:edit_word])   
   @words = Word.all
   erb(:words)
 end
@@ -50,7 +50,6 @@ get('/:id/definitions/:definition_id') do
 end
 
 
-# add a definition to a word
 post('/:id/definitions') do
   @word = Word.find(params[:id].to_i())
   @definition = Definitions.new(params[:add_definition], @word.id, nil)
@@ -59,7 +58,6 @@ post('/:id/definitions') do
   erb(:word)
 end
 
-# change a single instance of a definition
 patch('/:id/definitions/:definition_id') do
   @word = Word.find(params[:id].to_i())
   @definition = Definitions.find(params[:definition_id].to_i())
