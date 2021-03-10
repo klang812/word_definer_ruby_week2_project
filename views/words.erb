@@ -5,13 +5,13 @@
 <% if @words.any? %>
   <ul>
     <% @words.each do |library| %>
-      <li><a href="/<%= library.id %>"><%= library.word %></a></li>
+      <li><a href="/words/<%= library.id %>"><%= library.word %></a></li>
     <% end %>
   </ul>
 <% else %>
   <p>UH OH! There arent any words! What are we going to do?!</p>
   <p>Come on!  Let's add some words!</p>
-  <a href="/new_words">Let's Do This!</a>
+  <a href="/words/new_words">Let's Do This!</a>
 <% end %>
 
 

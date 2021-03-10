@@ -2,7 +2,7 @@
 
 
 <h1>Change Word: <%= @word.word() %></h1>
-<form action="/<%= @word.id() %>" method="post">
+<form action="/words/<%= @word.id() %>" method="post">
   <input name="_method" type="hidden" value="patch">
 
   <label for="edit_word">Change your word!</label>
@@ -10,7 +10,7 @@
 
   <button type="submit">Update your word</button>
 </form>
-<form action="/<%= @word.id() %>" method="post">
+<form action="/words/<%= @word.id() %>" method="post">
   <input name="_method" type="hidden" value="delete">
 
   <button type="submit">Delete word</button>
@@ -20,14 +20,14 @@
 <% if @definitions.any? %>
     <% @definitions.each do |definition| %>
   <ul>
-      <li><a href="/<%=@word.id %>/definitions/<%= definition.id %>"><%= definition.definition %></a></li>
+      <li><a href="/words/<%=@word.id %>/definitions/<%= definition.id %>"><%= definition.definition %></a></li>
   </ul>
     <% end %>
 <% end %>
 
 <h1>Add Definition: </h1>
 
-<form action="/<%= @word.id() %>/definitions" method="post">
+<form action="/words/<%= @word.id() %>/definitions" method="post">
   
   <label for="add_definition">Add a definition!</label>
   <input id="add_definition" name="add_definition" type="text">
@@ -37,7 +37,7 @@
 
 
 
-<p><a href="/">Return to word list</a></p>
+<p><a href="/words/">Return to word list</a></p>
 
 
 
