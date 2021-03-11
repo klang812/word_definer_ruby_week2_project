@@ -5,7 +5,12 @@ require('./lib/definitions')
 require('pry')
 also_reload('lib/**/*.rb')
 
-get('/words/') do
+get('/') do
+  @words = Word.all
+  erb(:words)
+end
+
+get('/words') do
   @words = Word.all
   erb(:words)
 end
